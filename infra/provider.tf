@@ -43,3 +43,26 @@ resource "digitalocean_kubernetes_node_pool" "app_node_pool" {
   min_nodes  = 1
   max_nodes  = 2
 }
+
+resource "digitalocean_loadbalancer" "ingress_load_balancer" {
+  name   = digitalocean_kubernetes_cluster.kubernetes_cluster.id
+  region = "ams3"
+  size = "lb-small"
+  algorithm = "round_robin"
+
+  forwarding_rule {
+    entry_port     = 80
+    entry_protocol = "http"
+
+    target_port     = 80
+    target_protocol = "http"
+
+  }
+
+  lifecycle {
+      ignore_changes = [
+        forwarding_rule,
+    ]
+  }
+
+}
