@@ -18,7 +18,7 @@ spec:
       containers:
       - name: flask-app
         # Replace with your docker registry info
-        image: <your_docker_registry>/<repo_name>/<image_name>:<tag>
+        image: registry.digitalocean.io/bee-do-challenge/flask-app:0.0.1
         ports:
         - name: http
           containerPort: 8000
