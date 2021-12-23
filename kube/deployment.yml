@@ -18,7 +18,7 @@ spec:
       containers:
       - name: flask-app
         # Replace with your docker registry info
-        image: registry.digitalocean.com/app/flask-app:latest
+        image: <your_docker_registry>/<repo_name>/<image_name>:<tag>
         ports:
         - name: http
           containerPort: 8000
