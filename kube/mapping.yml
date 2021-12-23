@@ -1,0 +1,8 @@
+---
+apiVersion: getambassador.io/v2
+kind: Mapping
+metadata:
+  name: flask-app
+spec:
+  prefix: /app/
+  service: "svc-flask-app:8000"

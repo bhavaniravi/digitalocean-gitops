@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-app
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: flask-app
+    spec:
+      containers:
+      - name: flask-app
+        # Replace with your docker registry info
+        image: <your_docker_registry>/<repo_name>/<image_name>:<tag>
+        ports:
+        - name: http
+          containerPort: 8000
+        env:
+        - name: PORT
+          value: "8000"
+        resources:
+          limits:
+            cpu: "0.1"
+            memory: 100Mi
