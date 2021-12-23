@@ -92,4 +92,4 @@ password: PAT automatically created
 ## ArgoCD pipeline
 
 argocd app create tekton-pipeline-app --repo https://github.com/bhavaniravi/tekton-pipeline-example-pipeline.git --path tekton-pipeline --dest-server https://kubernetes.default.svc --dest-namespace tekton-argocd-example
-argocd app create do-challenge-app --repo https://github.com/bhavaniravi/digitalocean-gitops.git --path kube --dest-server https://kubernetes.default.svc --dest-namespace flask-app --sync-option CreateNamespace=true
+argocd app create flask-app --repo https://github.com/bhavaniravi/digitalocean-gitops.git --path kube --dest-server https://kubernetes.default.svc --dest-namespace flask-app --sync-option CreateNamespace=true
