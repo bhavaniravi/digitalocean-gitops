@@ -93,3 +93,17 @@ password: PAT automatically created
 
 argocd app create tekton-pipeline-app --repo https://github.com/bhavaniravi/tekton-pipeline-example-pipeline.git --path tekton-pipeline --dest-server https://kubernetes.default.svc --dest-namespace tekton-argocd-example
 argocd app create flask-app --repo https://github.com/bhavaniravi/digitalocean-gitops.git --path kube --dest-server https://kubernetes.default.svc --dest-namespace flask-app --sync-option CreateNamespace=true
+
+## Create webhook in Github
+
+
+## Simulate push
+
+```
+
+curl -i \
+  -H 'X-GitHub-Event: push' \
+  -H 'Content-Type: application/json' \
+  -d '{"ref":"refs/heads/main","head_commit":{"id":"123abc"}}' \
+  https://do-challenge.thelearning.dev/tekton-argocd-example-build-mapping/
+```
